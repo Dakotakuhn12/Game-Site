@@ -8,6 +8,8 @@
   --font: "Nunito", sans-serif;
   --round: "Fredoka", sans-serif;
 }
+
+/* Base styles */
 * {
   box-sizing: border-box;
 }
@@ -23,6 +25,8 @@ body {
 a {
   color: inherit;
 }
+
+/* Header and navigation */
 .topbar {
   min-height: 76px;
   padding: 0 6vw;
@@ -91,6 +95,8 @@ nav a.selected {
   font-size: 25px;
   line-height: 14px;
 }
+
+/* Welcome banner */
 .welcome {
   min-height: 300px;
   padding: 46px 9vw 37px;
@@ -208,6 +214,8 @@ h1 em {
   color: var(--blue);
   transform: rotate(16deg);
 }
+
+/* Game library */
 .game-area {
   padding: 50px 7vw 70px;
   background: #f8fbff;
@@ -283,10 +291,6 @@ h1 em {
   font-weight: 900;
   letter-spacing: 0.5px;
 }
-.card-pink {
-  background: #ff94ad;
-}
-
 .card-hangman {
   display: block;
   background: #7fd1bd;
@@ -327,6 +331,8 @@ h1 em {
 .card-red {
   background: #f36c6c;
 }
+
+/* Game card illustrations */
 .card-art {
   position: absolute;
   top: 20px;
@@ -412,24 +418,6 @@ h1 em {
   font-style: normal;
   font-weight: 700;
   letter-spacing: 1px;
-}
-.art-racer span {
-  position: absolute;
-  top: 10px;
-  left: 31px;
-  color: #fff;
-  font: 105px/1 var(--round);
-  transform: rotate(-15deg);
-}
-.art-racer i {
-  position: absolute;
-  width: 75px;
-  height: 30px;
-  left: 66px;
-  bottom: 5px;
-  background: var(--blue);
-  border: 3px solid var(--navy);
-  border-radius: 37px 39px 10px 10px;
 }
 .art-space i {
   position: absolute;
@@ -542,6 +530,8 @@ h1 em {
   color: var(--yellow);
   font-size: 40px;
 }
+
+/* Game category labels */
 .category-section {
   padding: 56px 8vw 70px;
   text-align: center;
@@ -591,6 +581,8 @@ h1 em {
 .cat-more {
   background: #c2a5f2;
 }
+
+/* About section */
 .about {
   padding: 68px 15vw;
   display: flex;
@@ -625,6 +617,8 @@ h1 em {
   font-weight: 700;
   line-height: 1.7;
 }
+
+/* Footer */
 footer {
   min-height: 105px;
   padding: 25px 8vw;
@@ -652,6 +646,8 @@ footer small {
 footer small {
   opacity: 0.8;
 }
+
+/* Responsive layout */
 @media (max-width: 800px) {
   nav {
     display: none;
