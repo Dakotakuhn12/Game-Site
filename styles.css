@@ -571,7 +571,7 @@ h1 em {
   box-shadow: 0 5px 0 rgba(0, 0, 0, 0.3);
 }
 .category:hover {
-  transform: translateY(-4px);
+  transform: none;
 }
 .category span {
   font: 35px var(--round);
