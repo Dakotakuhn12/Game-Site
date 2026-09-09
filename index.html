@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="PlayPort is a colorful home for free browser games."
+    />
+    <title>PlayPort — Free Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="logo" href="#top" aria-label="PlayPort home"
+        ><span>PLAY</span><b>PORT</b><i></i
+      ></a>
+      <nav aria-label="Main navigation">
+        <a class="selected" href="#games">HOME</a
+        ><a href="#categories">CATEGORIES</a><a href="#about">ABOUT</a>
+      </nav>
+      <button class="search" type="button" aria-label="Search games">
+        <span>SEARCH GAMES</span><b>⌕</b>
+      </button>
+    </header>
+    <main id="top">
+      <section class="welcome" aria-labelledby="welcome-title">
+        <div class="burst burst-left" aria-hidden="true">✦</div>
+        <div>
+          <p>WELCOME TO PLAYPORT!</p>
+          <h1 id="welcome-title">PICK A GAME.<br />HAVE <em>FUN!</em></h1>
+          <span class="under-title">A BRAND-NEW GAME ROOM IS LOADING UP.</span>
+        </div>
+        <div class="mascot" aria-hidden="true">
+          <div class="face"><i></i><i></i><b>⌣</b></div>
+          <span class="controller">● <b>✚</b></span>
+        </div>
+        <div class="burst burst-right" aria-hidden="true">✦</div>
+      </section>
+      <section class="game-area" id="games" aria-labelledby="games-title">
+        <div class="area-heading">
+          <h2 id="games-title">NEW &amp; COOL GAMES</h2>
+          <span>MORE GAMES DROPPING SOON!</span>
+        </div>
+        <div class="game-grid">
+          <a
+            class="game-card card-hangman"
+            id="hangman"
+            href="https://hangman-game-sijv.onrender.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Play Hangman in a new tab"
+          >
+            <div class="card-number">01</div>
+            <span class="game-badge">PUZZLE</span>
+            <div class="card-art art-hangman" aria-hidden="true">
+              <span class="gallows"></span>
+              <i class="hang-head"></i>
+              <b class="hang-body"></b>
+              <em>H _ N G M _ N</em>
+            </div>
+            <h3>HANGMAN</h3>
+            <p>PLAY NOW</p>
+          </a>
+          <article class="game-card card-blue">
+            <div class="card-number">02</div>
+            <div class="card-art art-space"><i>★</i><b>☄</b></div>
+            <h3>SPACE<br />SQUAD</h3>
+            <p>COMING SOON</p>
+          </article>
+          <article class="game-card card-yellow">
+            <div class="card-number">03</div>
+            <div class="card-art art-puzzle">
+              <i>+</i><b>●</b><span>▲</span>
+            </div>
+            <h3>PUZZLE<br />POP</h3>
+            <p>COMING SOON</p>
+          </article>
+          <article class="game-card card-green">
+            <div class="card-number">04</div>
+            <div class="card-art art-jump"><i>↟</i><b>☻</b></div>
+            <h3>JUMP<br />AROUND</h3>
+            <p>COMING SOON</p>
+          </article>
+          <article class="game-card card-orange">
+            <div class="card-number">05</div>
+            <div class="card-art art-sport"><i>⚽</i><b>≋</b></div>
+            <h3>GOAL<br />RUSH</h3>
+            <p>COMING SOON</p>
+          </article>
+          <article class="game-card card-purple">
+            <div class="card-number">06</div>
+            <div class="card-art art-mystery"><i>?</i><b>✦</b></div>
+            <h3>MYSTERY<br />BOX</h3>
+            <p>COMING SOON</p>
+          </article>
+          <article class="game-card card-teal">
+            <div class="card-number">07</div>
+            <div class="card-art art-fish"><i>◒</i><b>≈</b></div>
+            <h3>DEEP SEA<br />DASH</h3>
+            <p>COMING SOON</p>
+          </article>
+          <article class="game-card card-red">
+            <div class="card-number">08</div>
+            <div class="card-art art-quest"><i>♜</i><b>✧</b></div>
+            <h3>PIXEL<br />QUEST</h3>
+            <p>COMING SOON</p>
+          </article>
+        </div>
+      </section>
+      <section
+        class="category-section"
+        id="categories"
+        aria-labelledby="category-title"
+      >
+        <h2 id="category-title">WHAT DO YOU FEEL LIKE PLAYING?</h2>
+        <div class="categories">
+          <a href="#games" class="category cat-action"><span>⚡</span>ACTION</a
+          ><a href="#hangman" class="category cat-puzzle"><span>✚</span>PUZZLE</a
+          ><a href="#games" class="category cat-sport"><span>★</span>SPORTS</a
+          ><a href="#games" class="category cat-racing"><span>➜</span>RACING</a
+          ><a href="#games" class="category cat-more"><span>+</span>MORE</a>
+        </div>
+      </section>
+      <section class="about" id="about">
+        <div class="info-orb" aria-hidden="true">?</div>
+        <div>
+          <h2>GAMES FOR<br />EVERYONE.</h2>
+          <p>
+            PlayPort is a bright, simple place to find great browser games.
+            There’s nothing to download—just choose a tile and start playing.
+            Our shelves are empty right now, but they won’t stay that way for
+            long!
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a class="logo" href="#top"><span>PLAY</span><b>PORT</b><i></i></a>
+      <p>NEW GAMES. BIG FUN. ALWAYS FREE.</p>
+      <small>© 2025 PLAYPORT</small>
+    </footer>
+  </body>
+</html>
