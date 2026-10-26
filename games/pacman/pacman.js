@@ -1142,6 +1142,8 @@ function canMove(block, direction) {
     width: block.width,
     height: block.height,
   };
+  if (test.x < 0 || test.x + test.width > boardWidth ||
+      test.y < 0 || test.y + test.height > boardHeight) return false;
   for (let wall of walls.values()) {
     if (collision(test, wall)) return false;
   }
@@ -1459,27 +1461,11 @@ class Block {
     this.velocityY = 0; // pixels moved per frame vertically
   }
 
-  // Tries to switch direction. If the new direction runs straight into a
-  // wall, the change is cancelled. (Used by ghosts; Pac-Man uses tryTurn.)
+  // Change direction without moving, keeping ghosts aligned with the tiles.
   updateDirection(direction) {
-    const prevDirection = this.direction;
+    if (!(this.isGhost ? canGhostMove(this, direction) : canMove(this, direction))) return;
     this.direction = direction;
     this.updateVelocity();
-
-    // Take a trial step in the new direction
-    this.x += this.velocityX;
-    this.y += this.velocityY;
-
-    // If the trial step hits a wall, undo it and restore the old direction
-    for (let wall of walls.values()) {
-      if (collision(this, wall)) {
-        this.x -= this.velocityX;
-        this.y -= this.velocityY;
-        this.direction = prevDirection;
-        this.updateVelocity();
-        return;
-      }
-    }
   }
 
   // Sets velocityX/velocityY to match the current direction
@@ -1504,5 +1490,7 @@ class Block {
   reset() {
     this.x = this.startX;
     this.y = this.startY;
+    this.leavingPen = this.isGhost;
   }
 }
+
