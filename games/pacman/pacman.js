@@ -1327,10 +1327,12 @@ function resetPositions() {
     ghost.image = ghostsScared ? scaredGhostImage : ghost.normalImage;
     ghost.direction = "U";
     ghost.updateVelocity();
-    ghost.requiredDots = ghostDotLimit(ghost);
-    ghost.waitingForDots = dotsEatenThisLevel < ghost.requiredDots;
-    ghost.leavingPen = !ghost.waitingForDots;
-    ghost.penDelay = 0;
+    // Release every ghost automatically; eating dots must not postpone exits.
+    const releaseOrder = { chaser: 0, ambush: 1, flank: 2, guard: 3 };
+    ghost.requiredDots = 0;
+    ghost.waitingForDots = false;
+    ghost.leavingPen = true;
+    ghost.penDelay = (releaseOrder[ghost.personality] || 0) * Math.round(500 / frameDelay);
   }
 }
 
@@ -1493,4 +1495,5 @@ class Block {
     this.leavingPen = this.isGhost;
   }
 }
+
 
