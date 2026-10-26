@@ -4,11 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pac-Man</title>
-    <link rel="stylesheet" href="pacman.css">
-    <script src="pacman.js"></script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23ffe600'/%3E%3Cpath d='M16 16 30 8a16 16 0 0 0 0 16z' fill='%2305050f'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="pacman.css?v=20261026">
+    <script src="pacman-audio.js?v=20261026"></script>
+    <script src="pacman.js?v=20261026"></script>
 </head>
 <body>
-<nav class="game-nav" aria-label="Game navigation"><a href="../../index.html">← PlayPort home</a><a href="../../arcade.html">Arcade games</a></nav>
-    <canvas id="board"></canvas>
+    <nav class="playport-nav" aria-label="PlayPort navigation"><a href="../../index.html">← PlayPort home</a><a href="../../arcade.html">Arcade games</a></nav>
+    <main class="game-shell">
+        <section class="hud" aria-label="Game status">
+            <div class="hud-item"><span class="hud-label">Score</span><strong id="score">0</strong></div>
+            <div class="hud-item"><span class="hud-label">High score</span><strong id="high-score">0</strong></div>
+            <div class="hud-item"><span class="hud-label">Lives</span><strong id="lives">3</strong></div>
+            <div class="hud-item"><span class="hud-label">Level</span><strong id="level">1</strong></div>
+        </section>
+        <div class="game-controls">
+            <button id="pause-button" type="button">Pause</button>
+            <button id="sound-button" type="button" aria-pressed="true">Sound: On</button>
+        </div>
+        <div class="board-wrap">
+            <canvas id="board"></canvas>
+            <div id="start-screen" class="game-over start-screen" aria-live="polite">
+                <form id="start-form" class="game-over-card">
+                    <p class="game-over-kicker">PLAYER NAME</p>
+                    <p class="attract-hint">ARCADE DEMO — ENTER YOUR NAME TO JOIN</p>
+                    <label class="name-label" for="player-name">Enter your name to play</label>
+                    <input id="player-name" name="playerName" maxlength="16" autocomplete="nickname" required>
+                    <label class="name-label" for="difficulty">Difficulty</label>
+                    <select id="difficulty" name="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                    <button class="start-button" type="submit">Start Game</button>
+                    <section class="leaderboard" aria-label="Top high scores">
+                        <h2>TOP PLAYERS</h2>
+                        <ol id="leaderboard-list"></ol>
+                    </section>
+                </form>
+            </div>
+            <div id="ready-overlay" class="ready-overlay" hidden>READY!</div>
+            <div id="intermission-overlay" class="game-over intermission-overlay" aria-live="polite" hidden>
+                <div class="game-over-card">
+                    <p class="game-over-kicker">COFFEE BREAK</p>
+                    <p id="intermission-caption" class="restart-hint">LEVEL COMPLETE</p>
+                    <div class="intermission-scene" aria-hidden="true"><span class="scene-pacman">●</span><span class="scene-ghost">●</span></div>
+                </div>
+            </div>
+            <div id="kill-screen" class="game-over kill-screen" aria-live="assertive" hidden>
+                <div class="game-over-card">
+                    <p class="game-over-kicker">LEVEL 256</p>
+                    <p class="final-score">MAZE CORRUPTION</p>
+                    <p class="restart-hint">The arcade cabinet has reached its infamous kill screen.</p>
+                </div>
+            </div>
+            <div id="game-over" class="game-over" aria-live="polite" hidden>
+                <div class="game-over-card">
+                    <p class="game-over-kicker">GAME OVER</p>
+                    <p class="final-score">Score <strong id="final-score">0</strong></p>
+                    <p class="restart-hint">Level <span id="final-level">1</span></p>
+                    <p class="restart-hint">Press any key to play again</p>
+                </div>
+            </div>
+        </div>
+        <nav class="touch-controls" aria-label="Touch movement controls">
+            <button type="button" data-direction="U" aria-label="Move up">▲</button>
+            <div><button type="button" data-direction="L" aria-label="Move left">◀</button><button type="button" data-direction="D" aria-label="Move down">▼</button><button type="button" data-direction="R" aria-label="Move right">▶</button></div>
+        </nav>
+    </main>
 </body>
 </html>
+
+
