@@ -1,0 +1,109 @@
+/* body {
+  text-align: center;
+}
+*/
+
+/* #board {
+  background-color: black;
+}
+*/
+
+/* ==========================================================================
+   PAC-MAN STYLES
+   Works with your existing HTML (just a <canvas id="board">).
+   The title and controls hint are drawn with CSS, so no HTML changes needed.
+   ========================================================================== */
+
+/* Retro arcade font. If you're offline it falls back to monospace. */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+/* ----- Colors (change these to re-theme the whole page) ----- */
+:root {
+  --bg-dark: #05050f;
+  --bg-mid: #0d0b2b;
+  --maze-blue: #2121de;
+  --pac-yellow: #ffe600;
+  --text-dim: #8a8ab8;
+}
+
+/* ----- Page background and layout ----- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  padding: 24px 16px;
+
+  /* Stack title, board, and hint vertically, centered on screen */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+
+  font-family: "Press Start 2P", "Courier New", monospace;
+  color: #fff;
+
+  /* Soft glow in the middle fading to near-black, plus a faint dot grid */
+  background-color: var(--bg-dark);
+  background-image:
+    radial-gradient(circle at 50% 40%, var(--bg-mid) 0%, var(--bg-dark) 70%),
+    radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    24px 24px;
+  background-attachment: fixed;
+}
+
+/* ----- Title above the board ----- */
+body::before {
+  content: "PAC-MAN";
+  font-size: clamp(22px, 4vw, 36px);
+  letter-spacing: 4px;
+  color: var(--pac-yellow);
+  text-shadow:
+    0 0 8px rgba(255, 230, 0, 0.8),
+    0 0 24px rgba(255, 230, 0, 0.4),
+    3px 3px 0 #b38f00;
+}
+
+/* ----- The game board ----- */
+#board {
+  background-color: black;
+  display: block; /* removes the small gap browsers leave under a canvas */
+
+  /* Shrinks the board to fit small windows while keeping its proportions */
+  max-width: 100%;
+  max-height: calc(100vh - 140px);
+  width: auto;
+  height: auto;
+
+  /* Glowing blue arcade-cabinet frame */
+  border: 4px solid var(--maze-blue);
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 4px #0a0a4a,
+    0 0 30px rgba(33, 33, 222, 0.7),
+    0 0 80px rgba(33, 33, 222, 0.35),
+    inset 0 0 40px rgba(33, 33, 222, 0.25);
+}
+
+/* ----- Controls hint below the board ----- */
+body::after {
+  content: "ARROW KEYS OR WASD TO MOVE";
+  font-size: clamp(8px, 1.4vw, 11px);
+  letter-spacing: 2px;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+.game-nav { order:-1; display:flex; flex-wrap:wrap; justify-content:center; gap:20px; font-size:10px; line-height:1.8; }
+.game-nav a { color:var(--pac-yellow); text-underline-offset:4px; }
+#board { max-height:calc(100dvh - 210px); }

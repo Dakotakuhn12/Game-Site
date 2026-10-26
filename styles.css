@@ -810,3 +810,11 @@ footer small {
     width: 100%;
   }
 }
+
+/* Pac-Man and its Arcade category. */
+.card-pacman { background: #171747; color: #fff; }
+.card-pacman h3, .card-pacman p { color: #ffe600; }
+.art-pacman { display:flex; align-items:center; justify-content:center; gap:18px; }
+.art-pacman i { display:block; width:86px; height:86px; border-radius:50%; background:#ffe600; clip-path:polygon(0 0,100% 0,100% 20%,50% 50%,100% 80%,100% 100%,0 100%); }
+.art-pacman b { color:#fff; font-size:22px; letter-spacing:5px; }
+.cat-arcade { background:#ffe600; color:#171747; }
